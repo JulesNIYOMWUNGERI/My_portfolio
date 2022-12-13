@@ -10,9 +10,9 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="nav">
-        <div >
-            <img class="avatar" src="images/pic.jpeg" alt="icon"/>
+    <nav>
+        <div class="image" >
+            <img class="avatar" src="images/pic.jpeg">
         </div>
         <div class="listContainer">
             <ul class="list">
@@ -35,18 +35,21 @@
                     <a href="#contact">Contact</a>
                 </li>
             </ul>
-            <ul class="icons">
+            <div class="icons">
                 <a><i class="fa-brands fa-facebook-f"></i></a>
                 <a><i class="fa-brands fa-twitter"></i></a>  
                 <a><i class="fa-brands fa-linkedin-in"></i></a>
                 <a><i class="fa-brands fa-instagram"></i></a>
-            </ul>
-            <ul class="cart">
-                <i class="fa-regular fa-cart-shopping"></i>
-            </ul>
+            </div>
+            <div class="cart">
+                <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+            </div>
         </div>
         <div class="button">
             <button class="nbutton">LET'S TALK</button>
+        </div>
+        <div class="hamburger">
+            <i class="fa-sharp fa-solid fa-bars"></i>
         </div>
     </nav>
     <section class="home" id="home">
@@ -90,12 +93,69 @@
           </p>
       </div>
       <div class="servicesbody">
-        <div class="smallbody"></div>
-        <div class="smallbody"></div>
-        <div class="smallbody"></div>
-        <div class="smallbody"></div>
-        <div class="smallbody"></div>
-        <div class="smallbody"></div>
+        <div class="smallbody">
+            <div class="scontainer">
+                <i class="fa-solid fa-layer-group"></i>
+                <h2 class="sbody">Web Development</h2>
+                <p class="smbody">
+                    Designing and Developing a website 
+                    is my best services That I Provide.
+                </p>
+            </div>
+        </div>
+        <div class="smallbody">
+            <div class="scontainer">
+                <i class="fa-solid fa-tags"></i>
+                <h2 class="sbody">Frontend Development</h2>
+                <p class="smbody">
+                    The Best Userinterface Design With
+                    Awesome Fonts And Colors Using HTML,
+                    CSS,React,React-redux, And JavaScript.
+                </p>
+            </div>
+        </div>
+        <div class="smallbody">
+            <div class="scontainer">
+                <i class="fa-solid fa-server"></i>
+                <h2 class="sbody">Backend Development</h2>
+                <p class="smbody">
+                    Server Side Development And  Maintenance
+                    Using NodeJS And Express.
+                </p>
+            </div>
+        </div>
+        <div class="smallbody">
+            <div class="scontainer">
+                <i class="fa-solid fa-paperclip"></i>
+                <h2 class="sbody">Figma Designing</h2>
+                <p class="smbody">
+                    The Best of The Best World Class Figma
+                    Designs To Take As Considaration Before
+                    The Official Website.
+                </p>
+            </div>
+        </div>
+        <div class="smallbody">
+            <div class="scontainer">
+                <i class="fa-solid fa-database"></i>
+                <h2 class="sbody">DataBase Managenent</h2>
+                <p class="smbody">
+                    Best DataBase Services Using MongoDB
+                    And Others.
+                </p>
+            </div>
+        </div>
+        <div class="smallbody">
+            <div class="scontainer">
+                <i class="fa-solid fa-house"></i>
+                <h2 class="sbody">website Hosting</h2>
+                <p class="smbody">
+                    Best Websites Hosting Services Both 
+                    Frontend And Backend using Heroku 
+                    And Netlify Or Other Pratforms.
+                </p>
+            </div>
+        </div>
       </div>
       </section>
     </section>
@@ -107,19 +167,126 @@
             </p>
         </div>
         <div class="portfoliobody">
-          <div class="smallportfolio"></div>
-          <div class="smallportfolio"></div>
-          <div class="smallportfolio"></div>
-          <div class="smallportfolio"></div>
-          <div class="smallportfolio"></div>
-          <div class="smallportfolio"></div>
+          <div class="smallportfolio">
+            <img src="images/mobile app.jpg"/>
+            <div class="collector">
+                <p class="pr">Development</p>
+                <h1 class="prad">Getting Tickets To The Next Show.</h1>
+                <button class="prbutton">CASE STUDY</button>
+            </div>
+          </div>
+          <div class="smallportfolio">
+            <img src="images/mobile app.jpg"/>
+            <div class="collector">
+                <p class="pr">Freelance</p>
+                <h1 class="prad">You Can See Your Portfolio.</h1>
+                <button class="prbutton">CASE STUDY</button>
+            </div>
+          </div>
+          <div class="smallportfolio">
+            <img src="images/mobile app.jpg"/>
+            <div class="collector">
+                <p class="pr">App Development</p>
+                <h1 class="prad">The Language of development.</h1>
+                <button class="prbutton">CASE STUDY</button>
+            </div>
+          </div>
+          <div class="smallportfolio">
+            <img src="images/mobile app.jpg"/>
+            <div class="collector">
+                <p class="pr">Figma Designs</p>
+                <h1 class="prad">The Best Figma Design Are Found Here.</h1>
+                <button class="prbutton">CASE STUDY</button>
+            </div>
+          </div>
+          <div class="smallportfolio">
+            <img src="images/mobile app.jpg"/>
+            <div class="collector">
+                <p class="pr">FrontEnd Websites</p>
+                <h1 class="prad">Best Frontend Designs Found Here.</h1>
+                <button class="prbutton">CASE STUDY</button>
+            </div>
+          </div>
+          <div class="smallportfolio">
+            <img src="images/mobile app.jpg"/>
+            <div class="collector">
+                <p class="pr">Backend Websites</p>
+                <h1 class="prad">Best Backend Designs Are Found Here.</h1>
+                <button class="prbutton">CASE STUDY</button>
+            </div>
+          </div>
         </div>
     </section>
     <section class="blog" id="blog">
-        <h1 class="nblog">blog</h1>
+        <div class="header">
+            <h1 class="nblog">Latest News</h1>
+            <p class="pblog">
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.
+            </p>
+        </div>
+        <div class="blogbody">
+            <div class="smallblog1">
+                <img src="images/agency2.jpeg">
+                <div class="description">
+                    <p>Development</p>
+                    <h1>Have You Heard? Agency Is Your Best Bet To Grow</h1>
+                    <button>Read More</button>
+                </div>
+            </div>
+            <div class="smallblog1">
+                <img src="images/agency2.jpeg">
+                <div class="description">
+                    <p>Development Gallery</p>
+                    <h1>Agency Works Only Under These Conditions</h1>
+                    <button>Read More</button>
+                </div>
+            </div>
+            <div class="smallblog1">
+                <img src="images/agency2.jpeg">
+                <div class="description">
+                    <p>Development</p>
+                    <h1>Top 10 Tips To Grow Your Agency</h1>
+                    <button>Read More</button>
+                </div>
+            </div>
+        </div>
     </section>
     <section class="contact" id="contact">
-        <h1 class="ncontact">contacts</h1>
+        <div class="commandcontact">
+            <div class="contactbody">
+                <div class="contactwraper">
+                    <h1 class="ncontact">Hire Me</h1>
+                    <p class="pcontact">I am available for freelance work. Connect with me via phone: <span class="pspan">01912-123456</span> or email: <span class="pspan">admin@example.com</span></p>
+                </div>
+                <div class="formwraper">
+                    <form class="form">
+                        <input class="inputs" type="text" placeholder="Your Name *">
+                        <input class="inputs" type="text" placeholder="Your email *">
+                        <input class="inputs" type="text" placeholder="Write a Subject">
+                        <textarea class="inputs" placeholder="Your Message" name="" id="" cols="30" rows="3"></textarea>
+                        <button class="formbutton">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+            <div class="avatarcommand">
+                <img src="images/pic.jpeg" alt="icon" class="contactavatar">
+            </div>
+        </div>
     </section>
+    <footer class="footer">
+        <div class="footer1">
+            <img class="footeravatar" src="images/pic.jpeg" alt="icon">
+            <h1 class="hfooter">trydo</h1>
+        </div>
+        <div class="footer2">
+            <a><div class="cilcle"><i class="fa-brands fa-facebook-f"></i></div></a>
+            <a><div class="cilcle"><i class="fa-brands fa-twitter"></i></div></a>
+            <a><div class="cilcle"><i class="fa-brands fa-linkedin-in"></i></div></a>
+            <a><div class="cilcle"><i class="fa-brands fa-instagram"></i></div></a>
+        </div>
+        <div class="footer3">
+            <p class="outside">© 2022. All rights reserved by <a>Rainbow-Themes.</a></p>
+        </div>
+    </footer>
 </body>
 </html>
