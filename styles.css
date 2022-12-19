@@ -170,14 +170,12 @@ ul li a:hover{
 }
 
 .cart{
-    background-color: #3a3a3aae;
     list-style-type:none;
     width: 30px;
     height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid rgba(198, 201, 216, 0.232);
 }
 
 .nbutton{
@@ -243,7 +241,6 @@ ul li a:hover{
         font-weight:700;
         font-family: Poppins Arial, Helvetica, sans-serif;
         font-size:60px;
-        background-color: rgba(177, 102, 102, 0.742);
         width: auto;
     }
 
@@ -298,7 +295,6 @@ ul li a:hover{
         width: 750px;
         height: 500px;
         padding-left: 10px;
-        background-color:#c6c9d8;
     }
 }
 
@@ -823,6 +819,7 @@ ul li a:hover{
 }
 
 .inputs{
+    width: 100%;
     padding-left: 12px;
     border: 2px solid rgba(198, 201, 216, 0.232);
     border-radius: 5px;
@@ -833,6 +830,27 @@ ul li a:hover{
     line-height: 46px;
     font-style: normal;
     font-family: Poppins, sans-serif;
+    outline: none;
+}
+
+
+.valid{
+    border-color: #09c372;
+}
+
+.invalid{
+    border-color: #ff3860;
+}
+
+.inputcontroller{
+display: flex;
+flex-direction: column;
+gap: 2px;
+}
+
+.inputcontroller h6{
+    color: #ff3860;
+    font-size: x-small;
 }
 
 .formbutton{
@@ -950,5 +968,4 @@ ul li a:hover{
     transition: 0.9s;
     cursor: pointer;
 }
-
 

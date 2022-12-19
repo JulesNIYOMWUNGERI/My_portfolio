@@ -259,12 +259,24 @@
                     <p class="pcontact">I am available for freelance work. Connect with me via phone: <span class="pspan">01912-123456</span> or email: <span class="pspan">admin@example.com</span></p>
                 </div>
                 <div class="formwraper">
-                    <form class="form">
-                        <input class="inputs" type="text" placeholder="Your Name *">
-                        <input class="inputs" type="text" placeholder="Your email *">
-                        <input class="inputs" type="text" placeholder="Write a Subject">
-                        <textarea class="inputs" placeholder="Your Message" name="" id="" cols="30" rows="3"></textarea>
-                        <button class="formbutton">SEND MESSAGE</button>
+                    <form class="form" id="form" action="/">
+                        <div class="inputcontroller">
+                            <input class="inputs" id="username" type="text" placeholder="Your Name ">
+                            <h6 id="error1"></h6>
+                        </div>
+                        <div class="inputcontroller">
+                            <input class="inputs" id="email" type="text" placeholder="Your email ">
+                            <h6 id="error2"></h6>
+                        </div>
+                        <div class="inputcontroller">
+                            <input class="inputs" id="subject" type="text" placeholder="Write a Subject">
+                            <h6 id="error3"></h6>
+                        </div>
+                        <div class="inputcontroller">
+                            <textarea class="inputs" id="message" placeholder="Your Message" name="" id="" cols="30" rows="3"></textarea>
+                            <h6 id="error4"></h6>
+                        </div>
+                        <button class="formbutton" type="submit">SEND MESSAGE</button>
                     </form>
                 </div>
             </div>
