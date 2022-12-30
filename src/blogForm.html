@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../styles.css">
+    <script defer src="../index.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="blogformbody">
+    <div class="blogForm">
+        <div class="blogformcontainer">
+            <h1>Create a blog</h1>
+            <form onsubmit="handleSubmitBlog(event)" id="blogFormInputs">
+                <div class="bloginput">
+                    <label class="label">Title:</label>
+                    <input id="title" type="text" placeholder="title">
+                </div>
+                <div class="bloginput">
+                    <label class="label">Description:</label>
+                    <input type="text" placeholder="description">
+                </div>
+                <div class="bloginput">
+                    <label class="label">Image:</label>
+                    <input type="file" placeholder="hellooo">
+                </div>
+                <button>CREATE</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -35,6 +35,16 @@ function handleNav () {
 
 window.addEventListener('scroll',handleNav)
 
+//EASY TOP RESPONSIVE
+
+const easytop = document.querySelector('.easytop')
+
+function handleEasyTop () {
+    easytop.classList.toggle('display',window.scrollY > 500)
+}
+
+window.addEventListener('scroll',handleEasyTop)
+
 
 //FORM VALIDATION
 
@@ -42,7 +52,7 @@ const form = document.getElementById('form');
 const button = document.querySelector('.formbutton')
 
 
-button.addEventListener('click',function validation(e){
+function validation(e){
     e.preventDefault()
 
 
@@ -93,7 +103,85 @@ button.addEventListener('click',function validation(e){
     }
     
 }
-)
 
 
+//HAMBURGER RESIPONSIVE
+
+const hamburgerBtn = document.querySelector('.hamburger');
+
+const navlist = document.querySelector('.list')
+
+
+function toggleBtn () {
+    navlist.classList.toggle('show')
+}
+
+hamburgerBtn.addEventListener('click', toggleBtn)
+
+
+//LOCALSTORAGE
+
+function getBlog () {
+    var blogs = JSON.parse(localStorage.getItem("blog"))
+    console.log(blogs)
+
+    document.getElementById('blogbody').innerHTML = blogs.map((blog) => `
+      <div class="smallblog1">
+        <img src="images/agency2.jpeg">
+        <div class="description">
+            <p>${blog?.title}</p>
+            <h1>${blog?.desc}</h1>
+            <button>Read More</button>
+        </div>
+      </div>`
+    )
+}
+
+
+
+function handleSubmitBlog (e) {
+    e.preventDefault()
+
+    const BlogForm = document.getElementById("blogFormInputs");
+    
+    var title = BlogForm[0].value
+    var desc = BlogForm[1].value
+    var img = BlogForm[2].value
+
+    if(localStorage.getItem("blog") == null){
+        let array = []
+
+        const blog = {
+            id:1,
+            title,
+            desc,
+            img
+        }
+    
+        array.push(blog);
+        
+        
+        localStorage.setItem("blog",JSON.stringify(array));
+        window.alert("Blog Added Successfully!.")
+        getBlog();
+    }else {
+        let array = JSON.parse(localStorage.getItem("blog"))
+        
+        const blog = {
+            id:array.length+1,
+            title,
+            desc,
+            img
+        }
+
+        array.push(blog)
+
+        localStorage.setItem("blog",JSON.stringify(array));
+        window.alert("Blog Added Successfully!.")
+        getBlog();
+    }
+
+    
+    
+}
 

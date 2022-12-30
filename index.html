@@ -9,15 +9,15 @@
     <script src="https://kit.fontawesome.com/9345e60b24.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
-<body>
-    <nav>
+<body onload="getBlog()">
+    <nav id="navbar1">
         <div class="image" >
             <img class="avatar" src="images/pic.jpeg">
         </div>
         <div class="listContainer">
             <ul class="list">
                 <li class="links">
-                    <a href="#home">home</a>
+                    <a href="#Home">home</a>
                 </li>
                 <li class="links">
                     <a href="#about">About</a>
@@ -36,10 +36,10 @@
                 </li>
             </ul>
             <div class="icons">
-                <a><i class="fa-brands fa-facebook-f"></i></a>
-                <a><i class="fa-brands fa-twitter"></i></a>  
-                <a><i class="fa-brands fa-linkedin-in"></i></a>
-                <a><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://web.facebook.com/niyomungeli.jules.3/"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://twitter.com/kendixjules"><i class="fa-brands fa-twitter"></i></a>  
+                <a href="https://www.linkedin.com/in/jules-niyomwungeri-457b08247/"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/kendixjules/" ><i class="fa-brands fa-instagram"></i></a>
             </div>
             <div class="cart">
                 <i class="fa-sharp fa-solid fa-cart-shopping"></i>
@@ -224,8 +224,8 @@
                 There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.
             </p>
         </div>
-        <div class="blogbody">
-            <div class="smallblog1">
+        <div id="blogbody" class="blogbody">
+            <!-- <div class="smallblog1">
                 <img src="images/agency2.jpeg">
                 <div class="description">
                     <p>Development</p>
@@ -248,7 +248,10 @@
                     <h1>Top 10 Tips To Grow Your Agency</h1>
                     <button>Read More</button>
                 </div>
-            </div>
+            </div> -->
+        </div>
+        <div class="ablogbutton">
+            <a href="src/blogForm.html"><button class="blogbutton">Create a blog</button></a>
         </div>
     </section>
     <section class="contact" id="contact">
@@ -259,7 +262,7 @@
                     <p class="pcontact">I am available for freelance work. Connect with me via phone: <span class="pspan">01912-123456</span> or email: <span class="pspan">admin@example.com</span></p>
                 </div>
                 <div class="formwraper">
-                    <form class="form" id="form" action="/">
+                    <form class="form" id="form" action="/" onsubmit="validation(event)">
                         <div class="inputcontroller">
                             <input class="inputs" id="username" type="text" placeholder="Your Name ">
                             <h6 id="error1"></h6>
@@ -285,16 +288,21 @@
             </div>
         </div>
     </section>
+    <section>
+       <a class="easytop" href="#home">
+          <i class="fa-solid fa-arrow-up"></i>
+       </a>
+    </section>
     <footer class="footer">
         <div class="footer1">
             <img class="footeravatar" src="images/pic.jpeg" alt="icon">
             <h1 class="hfooter">trydo</h1>
         </div>
         <div class="footer2">
-            <a><div class="cilcle"><i class="fa-brands fa-facebook-f"></i></div></a>
-            <a><div class="cilcle"><i class="fa-brands fa-twitter"></i></div></a>
-            <a><div class="cilcle"><i class="fa-brands fa-linkedin-in"></i></div></a>
-            <a><div class="cilcle"><i class="fa-brands fa-instagram"></i></div></a>
+            <a href="https://web.facebook.com/niyomungeli.jules.3/"><div class="cilcle"><i class="fa-brands fa-facebook-f"></i></div></a>
+            <a href="https://twitter.com/kendixjules"><div class="cilcle"><i class="fa-brands fa-twitter"></i></div></a>
+            <a href="https://www.linkedin.com/in/jules-niyomwungeri-457b08247/"><div class="cilcle"><i class="fa-brands fa-linkedin-in"></i></div></a>
+            <a href="https://www.instagram.com/kendixjules/"><div class="cilcle"><i class="fa-brands fa-instagram"></i></div></a>
         </div>
         <div class="footer3">
             <p class="outside">© 2022. All rights reserved by <a>Rainbow-Themes.</a></p>
