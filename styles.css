@@ -1212,6 +1212,7 @@ ul li a:hover{
 .bloginput input{
     padding: 15px;
     width: 90%;
+    color: #ffffff;
     background-color: transparent;
     border: 2px solid rgba(198, 201, 216, 0.118);
     border-radius: 5px;
