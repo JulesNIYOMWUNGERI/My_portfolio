@@ -7,17 +7,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/9345e60b24.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("EroZD85UgUctGy8KQ");
+       })();
+    </script>
+    <title>Jules Portfolio</title>
 </head>
-<body onload="getBlog()">
+<body onload="getBlog(),handletab('skills')">
     <nav id="navbar1">
         <div class="image" >
             <img class="avatar" src="images/pic.jpeg">
         </div>
         <div class="listContainer">
             <ul class="list">
+                <i onclick="handleHide()" class="fa-sharp fa-solid fa-xmark" id="close"></i>
                 <li class="links">
-                    <a href="#Home">home</a>
+                    <a href="#home">Home</a>
                 </li>
                 <li class="links">
                     <a href="#about">About</a>
@@ -49,7 +56,7 @@
             <button class="nbutton">LET'S TALK</button>
         </div>
         <div class="hamburger">
-            <i class="fa-sharp fa-solid fa-bars"></i>
+            <i class="fa-sharp fa-solid fa-bars" id="bars"></i>
         </div>
     </nav>
     <section class="home" id="home">
@@ -71,13 +78,39 @@
             </p>
             <div class="wraper">
                 <ul class="listwraper">
-                    <li class="nlists">Main skills</li>
-                    <li class="nlists">Awards</li>
-                    <li class="nlists">Experience</li>
-                    <li class="nlists">Education & Certification</li>
+                    <li class="nlists default" onclick="handletab('skills')">Main skills</li>
+                    <li class="nlists" onclick="handletab('awards')">Awards</li>
+                    <li class="nlists" onclick="handletab('Experience')">Experience</li>
+                    <li class="nlists" onclick="handletab('Education')">Education & Certification</li>
                 </ul>
-                <div class="desc">
-                    
+                <div class="desc" id="skills">
+                    <ul>
+                        <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
+                        <li><span>Web Development</span><br>Web App Development</li>
+                        <li><span>App Development</span><br>Building Android/ios apps</li>
+                    </ul>
+                </div>
+                <div class="desc" id="awards">
+                    <ul>
+                        <li><span>2021 - current</span><br>UI/UX Design Training at ET Institute</li>
+                        <li><span>2019 - 2021</span><br>Team Lead at StartApp LLC.</li>
+                        <li><span>2017 -2019</span><br>UI/UX Design Executive at Coin Digital Ltd.</li>
+                        <!-- <li><span>2016 -2017</span><br>Internship at ekart eCommerce.</li> -->
+                    </ul>
+                </div>
+                <div class="desc" id="Experience">
+                    <ul>
+                        <li><span>2016</span><br>UI/UX Design Training at ET Institute</li>
+                        <li><span>2016</span><br>Web App Development</li>
+                        <li><span>2014</span><br>Building Android/ios apps</li>
+                    </ul>
+                </div>
+                <div class="desc" id="Education">
+                    <ul>
+                        <li><span>2021 - current</span><br>bachors degree at IPRC Kigali</li>
+                        <li><span>2017 - 2019</span><br>A-Level at IPRC Kigali</li>
+                        <li><span>2014 - 2016</span><br>O-Level at APAPEC</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -225,30 +258,8 @@
             </p>
         </div>
         <div id="blogbody" class="blogbody">
-            <!-- <div class="smallblog1">
-                <img src="images/agency2.jpeg">
-                <div class="description">
-                    <p>Development</p>
-                    <h1>Have You Heard? Agency Is Your Best Bet To Grow</h1>
-                    <button>Read More</button>
-                </div>
-            </div>
-            <div class="smallblog1">
-                <img src="images/agency2.jpeg">
-                <div class="description">
-                    <p>Development Gallery</p>
-                    <h1>Agency Works Only Under These Conditions</h1>
-                    <button>Read More</button>
-                </div>
-            </div>
-            <div class="smallblog1">
-                <img src="images/agency2.jpeg">
-                <div class="description">
-                    <p>Development</p>
-                    <h1>Top 10 Tips To Grow Your Agency</h1>
-                    <button>Read More</button>
-                </div>
-            </div> -->
+
+
         </div>
         <div class="ablogbutton">
             <a href="src/blogForm.html"><button class="blogbutton">Create a blog</button></a>
@@ -259,7 +270,7 @@
             <div class="contactbody">
                 <div class="contactwraper">
                     <h1 class="ncontact">Hire Me</h1>
-                    <p class="pcontact">I am available for freelance work. Connect with me via phone: <span class="pspan">01912-123456</span> or email: <span class="pspan">admin@example.com</span></p>
+                    <p class="pcontact">I am available for freelance work. Connect with me via phone: <br/><span class="pspan">+250 784 766 280</span> or email: <span class="pspan">julesniyomwungeri144@gmail.com</span></p>
                 </div>
                 <div class="formwraper">
                     <form class="form" id="form" action="/" onsubmit="validation(event)">
@@ -279,7 +290,11 @@
                             <textarea class="inputs" id="message" placeholder="Your Message" name="" id="" cols="30" rows="3"></textarea>
                             <h6 id="error4"></h6>
                         </div>
-                        <button class="formbutton" type="submit">SEND MESSAGE</button>
+                        <div class="arrange">
+                            <button onclick="sendEmail()" class="formbutton" type="submit">SEND MESSAGE</button>
+                            <a href="https://julescv.vercel.app/" download type="submit">SEE MY CV</a>
+                        </div>
+                        <div class="comfirmAll" id="comfirm"></div>
                     </form>
                 </div>
             </div>
