@@ -9,6 +9,7 @@ function activeMenu () {
     while(--length && window.scrollY + 97 < sections[length].offsetTop) {}
         lis.forEach(li => li.classList.remove("active"));
         lis[length].classList.add("active");
+
 } 
 activeMenu();
 window.addEventListener("scroll", activeMenu);
@@ -144,6 +145,7 @@ function handleHide () {
 function getBlog () {
     var blogs = JSON.parse(localStorage.getItem("blog"))
 
+    document.getElementById('blogbody').innerHTML = "";
     for(var i = 0; i < blogs.length; i++){
         document.getElementById('blogbody').innerHTML += `
           <div class="smallblog1">
@@ -184,6 +186,11 @@ function handleSubmitBlog (e) {
         
         localStorage.setItem("blog",JSON.stringify(array));
         window.alert("Blog Added Successfully!.")
+
+        BlogForm[0].value = "";
+        BlogForm[1].value = "";
+        BlogForm[2].value = "";
+
         getBlog();
     }else {
         let array = JSON.parse(localStorage.getItem("blog"))
@@ -199,8 +206,19 @@ function handleSubmitBlog (e) {
 
         localStorage.setItem("blog",JSON.stringify(array));
         window.alert("Blog Added Successfully!.")
+
+        BlogForm[0].value = "";
+        BlogForm[1].value = "";
+        BlogForm[2].value = "";
+
         getBlog();
     }
+
+    const popup = document.querySelector('.popuptab');
+    
+    popup.classList.remove('show_popup')
+    
+
 }
 
 
@@ -262,5 +280,20 @@ function sendEmail () {
 
         }).catch((err) => console.log(err))
     }
+}
+
+
+
+//POPUP
+
+const popup = document.querySelector('.popuptab');
+
+function displayPopUp () {
+    popup.classList.add('show_popup')
+}
+
+
+function handleDismiss () {
+    popup.classList.remove('show_popup')
 }
 

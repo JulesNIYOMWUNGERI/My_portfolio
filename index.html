@@ -23,22 +23,22 @@
         <div class="listContainer">
             <ul class="list">
                 <i onclick="handleHide()" class="fa-sharp fa-solid fa-xmark" id="close"></i>
-                <li class="links">
+                <li onclick="handleHide()" class="links">
                     <a href="#home">Home</a>
                 </li>
-                <li class="links">
+                <li onclick="handleHide()" class="links">
                     <a href="#about">About</a>
                 </li>
-                <li class="links">
+                <li onclick="handleHide()" class="links">
                    <a href="#services">Services</a> 
                 </li>
-                <li class="links">
+                <li onclick="handleHide()" class="links">
                     <a href="#portfolio">Portfolio</a>
                 </li>
-                <li class="links">
+                <li onclick="handleHide()" class="links">
                     <a href="#blog">Blog</a>
                 </li>
-                <li class="links">
+                <li onclick="handleHide()" class="links">
                     <a href="#contact">Contact</a>
                 </li>
             </ul>
@@ -201,19 +201,19 @@
         </div>
         <div class="portfoliobody">
           <div class="smallportfolio">
-            <img src="images/mobile app.jpg"/>
+            <img src="images/carculator.PNG"/>
             <div class="collector">
                 <p class="pr">Development</p>
-                <h1 class="prad">Getting Tickets To The Next Show.</h1>
-                <button class="prbutton">CASE STUDY</button>
+                <h1 class="prad">Best designed simple carculator.</h1>
+                <a href="https://html-simple-carculator.vercel.app/"><button class="prbutton">CASE STUDY</button></a>
             </div>
           </div>
           <div class="smallportfolio">
-            <img src="images/mobile app.jpg"/>
+            <img src="images/todo list.PNG"/>
             <div class="collector">
                 <p class="pr">Freelance</p>
                 <h1 class="prad">You Can See Your Portfolio.</h1>
-                <button class="prbutton">CASE STUDY</button>
+                <a href="https://codepen.io/Jules-Niyomwungeri/pen/wvxGGMq"><button class="prbutton">CASE STUDY</button></a>
             </div>
           </div>
           <div class="smallportfolio">
@@ -221,7 +221,7 @@
             <div class="collector">
                 <p class="pr">App Development</p>
                 <h1 class="prad">The Language of development.</h1>
-                <button class="prbutton">CASE STUDY</button>
+                <a><button class="prbutton">CASE STUDY</button></a>
             </div>
           </div>
           <div class="smallportfolio">
@@ -262,7 +262,30 @@
 
         </div>
         <div class="ablogbutton">
-            <a href="src/blogForm.html"><button class="blogbutton">Create a blog</button></a>
+            <button onclick="displayPopUp()" class="blogbutton">Create a blog</button>
+        </div>
+        <div class="popuptab">
+            <div class="innerpopup">
+                <div onclick="handleDismiss()"  class="dismisspopup">x</div>
+                <div class="blogformcontainer">
+                    <h1>Create a blog</h1>
+                    <form onsubmit="handleSubmitBlog(event)" id="blogFormInputs">
+                        <div class="bloginput">
+                            <label class="label">Title:</label>
+                            <input id="title" type="text" placeholder="Title">
+                        </div>
+                        <div class="bloginput">
+                            <label class="label">Description:</label>
+                            <input type="text" placeholder="Description">
+                        </div>
+                        <div class="bloginput">
+                            <label class="label">Image:</label>
+                            <input type="text" placeholder="Image url...">
+                        </div>
+                        <button>CREATE</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
     <section class="contact" id="contact">
@@ -270,7 +293,7 @@
             <div class="contactbody">
                 <div class="contactwraper">
                     <h1 class="ncontact">Hire Me</h1>
-                    <p class="pcontact">I am available for freelance work. Connect with me via phone: <br/><span class="pspan">+250 784 766 280</span> or email: <span class="pspan">julesniyomwungeri144@gmail.com</span></p>
+                    <p class="pcontact">I am available for freelance work. Connect with me via phone: <br/><span class="pspan">+250 784 766 280</span> or email: <span class="pspan">julesniyomwungeri144 @gmail.com</span></p>
                 </div>
                 <div class="formwraper">
                     <form class="form" id="form" action="/" onsubmit="validation(event)">
