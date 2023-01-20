@@ -146,14 +146,14 @@ function getBlog () {
     var blogs = JSON.parse(localStorage.getItem("blog"))
 
     document.getElementById('blogbody').innerHTML = "";
-    for(var i = 0; i < blogs.length; i++){
+    for(var i = 0; i < blogs?.length; i++){
         document.getElementById('blogbody').innerHTML += `
           <div class="smallblog1">
             <img src=${blogs[i]?.img}>
             <div class="description">
               <p>${blogs[i]?.title}</p>
               <h1>${blogs[i]?.desc}</h1>
-              <button>Read More</button>
+              <a><button>Read More</button></a>
             </div>
           </div>
         `
@@ -284,7 +284,7 @@ function sendEmail () {
 
 
 
-//POPUP
+//blog POPUP
 
 const popup = document.querySelector('.popuptab');
 
@@ -296,4 +296,204 @@ function displayPopUp () {
 function handleDismiss () {
     popup.classList.remove('show_popup')
 }
+
+
+
+//SIGNUP
+
+const user = JSON.parse(localStorage.getItem('user'))
+const createBlogBtn = document.querySelector('.create')
+const signUpBtn = document.querySelector('.signup')
+
+function getUser () {
+    if(user){
+        signUpBtn.classList.remove('visibleNow')
+        signUpBtn.classList.add('hideNow')
+        createBlogBtn.classList.add('visibleNow')
+        createBlogBtn.classList.remove('hideNow')
+
+        createBlogBtn.innerHTML = `${user[0]?.fullname} Create Blog`
+    }else {
+        signUpBtn.classList.add('visibleNow')
+        signUpBtn.classList.remove('hideNow')
+        createBlogBtn.classList.remove('visibleNow')
+        createBlogBtn.classList.add('hideNow')
+    }
+}
+
+
+
+const signUpButton = document.getElementById('signup')
+
+signUpButton.addEventListener('click',function handleSubmitUser (e) {
+    e.preventDefault()
+    
+    const SignUpform = document.getElementById("userFormInputs");
+
+    var fullname = SignUpform[0].value
+    var email = SignUpform[1].value
+    var password = SignUpform[2].value
+    var comfimPassword = SignUpform[3].value
+
+    if(localStorage.getItem('register') == null){
+        let array = []
+
+
+        const user = {
+            id:1,
+            fullname,
+            email,
+            password,
+            comfimPassword
+        }
+
+        console.log(user)
+
+        array.push(user)
+
+        localStorage.setItem("register",JSON.stringify(array))
+        window.alert("Signed Up Successfully!! Now SignIn.")
+
+        SignUpform[0].value = "";
+        SignUpform[1].value = "";
+        SignUpform[2].value = "";
+        SignUpform[3].value = "";
+    }else {
+        let array = JSON.parse(localStorage.getItem("register"))
+
+        const user = {
+            id:1,
+            fullname,
+            email,
+            password,
+            comfimPassword
+        }
+
+        for(var i=0; i < array.length; i++){
+            if(array[i].email === user.email){
+                window.alert("User already exist ")
+
+                break;
+            }else{
+                array.push(user)
+
+                localStorage.setItem("register",JSON.stringify(array))
+                window.alert("Signed Up Successfully!! Now SignIn.")
+
+                SignUpform[0].value = "";
+                SignUpform[1].value = "";
+                SignUpform[2].value = "";
+                SignUpform[3].value = "";
+
+                break;
+            }
+        }
+    }
+})
+
+
+const signInButton = document.getElementById('signin')
+
+
+signInButton.addEventListener('click',function handleLogin(e){
+    e.preventDefault();
+
+    console.log(signInButton)
+    
+    const SignUpform = document.getElementById("userFormInputs");
+
+    var email = SignUpform[1].value
+    var password = SignUpform[2].value
+
+    
+
+    const user = {
+        id:1,
+        email,
+        password,
+
+    }
+
+    if(localStorage.getItem('register')){
+
+        let array = JSON.parse(localStorage.getItem("register"))
+
+
+        // for(var i=0; i < array.length; i++){
+        //     if(array[i].email.find(user.email)){
+                
+        //         const loger = []
+
+        //         loger.push(user)
+
+        //         localStorage.setItem('user',JSON.stringify(loger))
+
+        //         SignUpform[1].value = "";
+        //         SignUpform[2].value = "";
+
+        //         getUser();
+
+        //         break;
+        //     }else{
+        //         window.alert('User Not Exist SignUp!!!!')
+
+        //         break;
+        //     }
+        // }
+
+    }else {
+        window.alert("Please SignUp first!!!")
+    }
+})
+
+
+
+
+//SIGNUP POPUP
+
+const SIGNUPpopup = document.querySelector('.SIGNUPpopuptab');
+
+function displaySignUpPopUp () {
+    SIGNUPpopup.classList.add('show_popup')
+}
+
+
+function SIGNUPhandleDismiss () {
+    SIGNUPpopup.classList.remove('show_popup')
+}
+
+
+
+const SwitchBtn = document.querySelector('.switch')
+const SwitchBtn2 = document.querySelector('.switch2')
+const hidden2 = document.querySelector('.hidden2')
+const hidden3 = document.querySelector('.hidden3')
+
+Loginbtn = document.querySelector('.Loginbtn')
+Loginbtn2 = document.querySelector('.Loginbtn2')
+
+
+SwitchBtn.addEventListener('click',function Switch(e){
+    e.preventDefault()
+
+    hidden2.classList.remove('notshown')
+    hidden3.classList.remove('notshown')
+    SwitchBtn.classList.add('notshown')
+    SwitchBtn2.classList.remove('notshown')
+    Loginbtn.classList.remove('notshown')
+    Loginbtn2.classList.add('notshown')
+})
+
+
+SwitchBtn2.addEventListener('click',function Switch2(e){
+    e.preventDefault()
+
+    hidden2.classList.add('notshown')
+    hidden3.classList.add('notshown')
+    SwitchBtn.classList.remove('notshown')
+    SwitchBtn2.classList.add('notshown')
+    Loginbtn.classList.add('notshown')
+    Loginbtn2.classList.remove('notshown')
+})
+
 

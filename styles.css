@@ -710,7 +710,7 @@ ul li a:hover{
     gap: 20px;
 }
 
-.blogbutton{
+.blogbutton1.hideNow{
     background-color: #f9004d;
     padding: 18px;
     width: 37%;
@@ -721,9 +721,58 @@ ul li a:hover{
     font-size: 15px;
     letter-spacing: 2px;
     transition: .40s;
+    display: none;
 }
 
-.blogbutton:hover{
+.blogbutton1.visibleNow{
+    background-color: #f9004d;
+    padding: 18px;
+    width: 37%;
+    border: 2px solid #f9004d;
+    border-radius: 7px;
+    color: #fffff5;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 2px;
+    transition: .40s;
+    display: block;
+}
+
+.blogbutton2.hideNow{
+    background-color: #f9004d;
+    padding: 18px;
+    width: 37%;
+    border: 2px solid #f9004d;
+    border-radius: 7px;
+    color: #fffff5;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 2px;
+    transition: .40s;
+    display: none;
+}
+
+.blogbutton2.visibleNow{
+    background-color: #f9004d;
+    padding: 18px;
+    width: 37%;
+    border: 2px solid #f9004d;
+    border-radius: 7px;
+    color: #fffff5;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 2px;
+    transition: .40s;
+    display: block;
+}
+
+.blogbutton1:hover{
+    background-color: transparent;
+    color: #f9004d;
+    transform: translate(0, -7px);
+}
+
+.blogbutton2:hover{
     background-color: transparent;
     color: #f9004d;
     transform: translate(0, -7px);
@@ -1198,7 +1247,8 @@ ul li a:hover{
     padding: 20px;
 }
 
-.blogformcontainer button{
+
+.Loginbtn{
     padding:15px 40px;
     background-color: #f9004fe6;
     color: #c3c3c3;
@@ -1208,15 +1258,120 @@ ul li a:hover{
     transition: 0.50s;
 }
 
-.blogformcontainer button:hover{
+
+.Loginbtn:hover{
     transform: translate(0, -5px);
 }
+
+.Loginbtn2{
+    padding:15px 40px;
+    background-color: #f9004fe6;
+    color: #c3c3c3;
+    border-radius: 5px;
+    font-weight: 700;
+    border: none;
+    transition: 0.50s;
+}
+
+
+.Loginbtn2:hover{
+    transform: translate(0, -5px);
+}
+
+.createbtn{
+    padding:15px 40px;
+    background-color: #f9004fe6;
+    color: #c3c3c3;
+    border-radius: 5px;
+    font-weight: 700;
+    border: none;
+    transition: 0.50s;
+}
+
+.createbtn:hover{
+    transform: translate(0, -5px);
+}
+
+
+.switch{
+    border: #c3c3c3;
+    background-color: transparent;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.switch:hover{
+    text-decoration: underline;
+}
+
+
+.switch2{
+    border: #c3c3c3;
+    background-color: transparent;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.switch2:hover{
+    text-decoration: underline;
+}
+
+.notshown{
+    display: none;
+}
+
 
 .bloginput{
    width: 100%;
    display: flex;
    gap: 5px;
    flex-direction: column;
+}
+
+.hidden2{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+ }
+
+ .hidden2.notshown{
+    width: 100%;
+    display: none;
+    gap: 5px;
+    flex-direction: column;
+ }
+
+ .hidden2 input{
+    padding: 15px;
+    width: 90%;
+    color: #ffffff ;
+    background-color: transparent;
+    border: 2px solid rgba(198, 201, 216, 0.118);
+    border-radius: 5px;
+}
+
+ .hidden3{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+ }
+
+ .hidden3.notshown{
+    width: 100%;
+    display: none;
+    gap: 5px;
+    flex-direction: column;
+ }
+
+ .hidden3 input{
+    padding: 15px;
+    width: 90%;
+    color: #ffffff ;
+    background-color: transparent;
+    border: 2px solid rgba(198, 201, 216, 0.118);
+    border-radius: 5px;
 }
 
 .label{
@@ -1262,6 +1417,27 @@ ul li a:hover{
     align-items: center;
 }
 
+.SIGNUPpopuptab{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #303030eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20000000000;
+    display: none;
+}
+
+.SIGNUPpopuptab.show_popup{
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .innerpopup{
     background-color: #000;
     width: 320px;
@@ -1278,11 +1454,10 @@ ul li a:hover{
     width: 300px;
     display: flex;
     justify-content: end;
-    position: absolute;
-    top: 10px;
     padding-right: 18px;
     cursor: pointer;
     z-index: 2000000000000;
+    background-color: #000000;
 }
 
 

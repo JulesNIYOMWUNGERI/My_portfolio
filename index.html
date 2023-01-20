@@ -15,7 +15,7 @@
     </script>
     <title>Jules Portfolio</title>
 </head>
-<body onload="getBlog(),handletab('skills')">
+<body onload="getBlog(),handletab('skills'),getUser()">
     <nav id="navbar1">
         <div class="image" >
             <img class="avatar" src="images/pic.jpeg">
@@ -60,7 +60,7 @@
         </div>
     </nav>
     <section class="home" id="home">
-        <p class="para">FREELANCE DIGITAL DESIGNER</p>
+        <p class="para">FREELANCE DIGITAL WEBSITE</p>
         <h1 class="hhome">
             Hello I'am <span class="span">Jules</span> 
             Welcome to my world.
@@ -262,7 +262,8 @@
 
         </div>
         <div class="ablogbutton">
-            <button onclick="displayPopUp()" class="blogbutton">Create a blog</button>
+            <button onclick="displayPopUp()" class="blogbutton1 create"></button>
+            <button onclick="displaySignUpPopUp()" class="blogbutton2 signup">LogIn To create Blog</button>
         </div>
         <div class="popuptab">
             <div class="innerpopup">
@@ -282,7 +283,37 @@
                             <label class="label">Image:</label>
                             <input type="text" placeholder="Image url...">
                         </div>
-                        <button>CREATE</button>
+                        <button class="createbtn">CREATE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="SIGNUPpopuptab">
+            <div class="innerpopup">
+                <div onclick="SIGNUPhandleDismiss()"  class="dismisspopup">x</div>
+                <div class="blogformcontainer">
+                    <h1>Enter Your Credentials</h1>
+                    <form id="userFormInputs">
+                        <div class="hidden2 notshown">
+                            <label class="label">Full Name:</label>
+                            <input id="title" type="text" placeholder="Full Name">
+                        </div>
+                        <div class="bloginput">
+                            <label class="label">Email:</label>
+                            <input type="text" placeholder="Email">
+                        </div>
+                        <div class="bloginput">
+                            <label class="label">Password:</label>
+                            <input type="text" placeholder="Password">
+                        </div>
+                        <div class="hidden3 notshown">
+                            <label class="label">Comfirm Password:</label>
+                            <input type="text" placeholder="Comfirm Password">
+                        </div>
+                        <button id="signup" class="Loginbtn notshown">SIGNUP</button>
+                        <button id="signin" class="Loginbtn2" >SIGNIN</button>
+                        <div class="switch">Don't Have an Account? SignUp</div>
+                        <div class="switch2 notshown">Already Have an Account? SignIn</div>
                     </form>
                 </div>
             </div>
@@ -334,7 +365,7 @@
     <footer class="footer">
         <div class="footer1">
             <img class="footeravatar" src="images/pic.jpeg" alt="icon">
-            <h1 class="hfooter">trydo</h1>
+            <h1 class="hfooter">Kendix</h1>
         </div>
         <div class="footer2">
             <a href="https://web.facebook.com/niyomungeli.jules.3/"><div class="cilcle"><i class="fa-brands fa-facebook-f"></i></div></a>
@@ -343,7 +374,7 @@
             <a href="https://www.instagram.com/kendixjules/"><div class="cilcle"><i class="fa-brands fa-instagram"></i></div></a>
         </div>
         <div class="footer3">
-            <p class="outside">© 2022. All rights reserved by <a>Rainbow-Themes.</a></p>
+            <p class="outside">© 2022. All rights reserved by <a>JulesKendix.</a></p>
         </div>
     </footer>
 </body>
