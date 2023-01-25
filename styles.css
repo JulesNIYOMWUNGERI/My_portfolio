@@ -725,11 +725,7 @@ ul li a:hover{
 }
 
 .blogbutton1.visibleNow{
-    background-color: #f9004d;
-    padding: 18px;
-    width: 37%;
-    border: 2px solid #f9004d;
-    border-radius: 7px;
+    cursor: pointer;
     color: #fffff5;
     font-weight: bold;
     font-size: 15px;
@@ -753,11 +749,7 @@ ul li a:hover{
 }
 
 .blogbutton2.visibleNow{
-    background-color: #f9004d;
-    padding: 18px;
-    width: 37%;
-    border: 2px solid #f9004d;
-    border-radius: 7px;
+    cursor: pointer;
     color: #fffff5;
     font-weight: bold;
     font-size: 15px;
@@ -767,15 +759,15 @@ ul li a:hover{
 }
 
 .blogbutton1:hover{
-    background-color: transparent;
     color: #f9004d;
     transform: translate(0, -7px);
+    text-decoration: underline;
 }
 
 .blogbutton2:hover{
-    background-color: transparent;
     color: #f9004d;
     transform: translate(0, -7px);
+    text-decoration: underline;
 }
 
 .ablogbutton{  
@@ -787,10 +779,6 @@ ul li a:hover{
 
 .ablogbutton a{
     text-decoration: none;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .smallblog1{
@@ -854,6 +842,9 @@ ul li a:hover{
 
 .description h1{
     width: 80%;
+    height: 55px;
+    text-overflow:ellipsis;
+    overflow: hidden;
     font-style: normal;
     font-weight: 700;
     font-size: 23px;
@@ -1278,7 +1269,7 @@ ul li a:hover{
     transform: translate(0, -5px);
 }
 
-.createbtn{
+.createbtn1{
     padding:15px 40px;
     background-color: #f9004fe6;
     color: #c3c3c3;
@@ -1288,7 +1279,29 @@ ul li a:hover{
     transition: 0.50s;
 }
 
-.createbtn:hover{
+.createbtn1.show-not{
+    display: none;
+}
+
+.createbtn1:hover{
+    transform: translate(0, -5px);
+}
+
+.createbtn2{
+    padding:15px 40px;
+    background-color: #f9004fe6;
+    color: #c3c3c3;
+    border-radius: 5px;
+    font-weight: 700;
+    border: none;
+    transition: 0.50s;
+}
+
+.createbtn2.show-not{
+    display: none;
+}
+
+.createbtn2:hover{
     transform: translate(0, -5px);
 }
 
@@ -1342,13 +1355,27 @@ ul li a:hover{
     flex-direction: column;
  }
 
- .hidden2 input{
+ .name-field{
     padding: 15px;
     width: 90%;
     color: #ffffff ;
     background-color: transparent;
     border: 2px solid rgba(198, 201, 216, 0.118);
     border-radius: 5px;
+    outline: none;
+}
+
+.fieldvalid{
+    border: 2px solid #09c372;
+}
+
+.fieldinvalid{
+    border: 2px solid #e0004d;
+}
+
+.hidden2 span{
+    font-size: 10px;
+    color: #e0004d;
 }
 
  .hidden3{
@@ -1365,26 +1392,142 @@ ul li a:hover{
     flex-direction: column;
  }
 
- .hidden3 input{
+ .comfirmpassword-field{
     padding: 15px;
     width: 90%;
     color: #ffffff ;
     background-color: transparent;
     border: 2px solid rgba(198, 201, 216, 0.118);
     border-radius: 5px;
+    outline: none;
+}
+
+.comfirmpassword-field.fieldinvalid{
+    border: 2px solid #e0004d;
+}
+
+.comfirmpassword-field.fieldvalid{
+    border: 2px solid #09c372;
+}
+
+.hidden3 span{
+    font-size: 10px;
+    color: #e0004d;
+}
+
+#submit-error{
+    font-size: 10px;
+    color: #e0004d;
+}
+
+.title-field{
+    padding: 15px;
+    width: 90%;
+    color: #ffffff ;
+    background-color: transparent;
+    border: 2px solid rgba(198, 201, 216, 0.118);
+    border-radius: 5px;
+    outline: none;
+}
+
+.title-field.fieldvalid{
+    border: 2px solid #09c372;
+}
+
+.title-field.fieldinvalid{
+    border: 2px solid #e0004d;
+}
+
+.image-field1{
+    padding: 15px;
+    width: 90%;
+    color: #ffffff ;
+    background-color: transparent;
+    border: 2px solid rgba(198, 201, 216, 0.118);
+    border-radius: 5px;
+    outline: none;
+}
+
+.image-field1.fieldvalid{
+    border: 2px solid #09c372;
+}
+
+.image-field1.fieldinvalid{
+    border: 2px solid #e0004d;
+}
+
+#blog-submit-error{
+    font-size: 10px;
+    color: #e0004d;
 }
 
 .label{
     color: rgb(66, 66, 66);
 }
 
-.bloginput input{
+.email-field{
     padding: 15px;
     width: 90%;
     color: #ffffff ;
     background-color: transparent;
     border: 2px solid rgba(198, 201, 216, 0.118);
     border-radius: 5px;
+    outline: none;
+}
+
+.email-field.fieldinvalid{
+    border: 2px solid #e0004d;
+}
+
+.email-field.fieldvalid{
+    border: 2px solid #09c372;
+}
+
+.password-field{
+    padding: 15px;
+    width: 90%;
+    color: #ffffff ;
+    background-color: transparent;
+    border: 2px solid rgba(198, 201, 216, 0.118);
+    border-radius: 5px;
+    outline: none;
+}
+
+.password-field.fieldinvalid{
+    border: 2px solid #e0004d;
+}
+
+.password-field.fieldvalid{
+    border: 2px solid #09c372;
+}
+
+.bloginput span{
+    font-size: 10px;
+    color: #e0004d;
+}
+
+.bloginput span.errorvalid{
+    font-size: 10px;
+    color: #09c372;
+}
+
+.desc-field{
+    font-family: Poppins, sans-serif;
+    padding: 15px;
+    width: 90%;
+    color: #ffffff ;
+    background-color: transparent;
+    border: 2px solid rgba(198, 201, 216, 0.118);
+    border-radius: 5px;
+    outline: none;
+}
+
+.desc-field.fieldinvalid{
+    border: 2px solid #e0004d;
+}
+
+.desc-field.fieldvalid{
+    border: 2px solid #09c372;
 }
 
 
@@ -1575,4 +1718,399 @@ ul li a:hover{
     
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.blogDetails{
+    background-color: #000;
+    padding: 20px;
+}
+
+
+.details{
+    color: rgb(187, 187, 187);
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+.part1{
+    width: 70%;
+}
+
+.part1Image{
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.part1-title{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.part1-desc{
+    padding: 20px;
+}
+
+.part1-desc p{
+    font-family: Poppins,sans-serif;
+    line-height: 25px;
+}
+
+.likesSection{
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.likesSection p{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+
+.imageContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.part2{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.other-blogs{
+    width: 100%;
+    margin-top: -15px;
+    margin-bottom: 10px;
+}
+
+.part2-cont{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.part2Image{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.part2Desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.part2Desc p{
+    width: 100%;
+    height: 50px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+
+.part2Desc button{
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid gray;
+    color: #fff;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.part2Desc button:hover{
+    background-color: #e0004d;
+    border: 2px solid #e0004d;
+    transform: translate(0, -5px);
+}
+
+.part2-container{
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lineBtn{
+    width: 100%;
+}
+
+.btn-cont{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+
+
+
+
+
+
+
+.dashboardContainer{
+    color: #fff;
+    background-color: rgb(43, 43, 43);
+    padding: 20px;
+}
+
+.dashWraper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dashCont{
+    width: screen;
+    border: 1px solid gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    padding: 5px 20px;
+
+}
+
+.dashImg{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: #c6c9d87c;
+}
+
+.dashTitle{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dashBtn{
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #e0004d;
+    background-color: transparent;
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+.dashBtn:hover{
+    background-color: #e0004d;
+    transform: translate(0, -7px);
+    transition: 0.5s;
+}
+
+.dashCont3{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.dashCont3-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.dashCont3-container img{
+    width: 35%;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.dashCont3-desc{
+    width: 40%;
+    height: 200px;
+    border-right: 1px solid white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dashCont3-desc p{
+    height: 90px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.dashCont3-buttom{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashCont3-buttom button{
+    padding: 7px;
+    background-color: transparent;
+    color: rgb(135, 133, 133);
+    border: 2px solid #e0004e4d;
+    border-radius: 2px;
+    transition: 0.5s;
+}
+
+.dashCont3-buttom button:hover{
+    background-color: #e0004d;
+    color: #fff;
+    border: none;
+    transform: translate(0, -4px);
+    transition: 0.5s;
+}
+
+.inner-button{
+    width: 20%;
+    padding: 5px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+}
+
+.inner-button .span1{
+    cursor: pointer;
+    color: #e0004d;
+    transition: 0.5s;
+}
+
+.inner-button .span2:hover{
+    transform: translate(0, -4px);
+    transition: 0.5s;
+}
+
+.inner-button span{
+    cursor: pointer;
+    color: #09c372;
+    transition: 0.5s;
+}
+
+.inner-button span:hover{
+    transform: translate(0, -4px);
+    transition: 0.5s;
+}
+
+.create-blog-title{
+    display: block;
+}
+
+.create-blog-title.show-not{
+    display: none;
+}
+
+.edit-blog-title{
+    display: block;
+}
+
+.edit-blog-title.show-not{
+    display: none;
+}
+
+
+@media only screen and (max-width:600px){
+    .dashCont3-container{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .dashCont3-container img{
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+    }
+
+    .dashCont3-desc{
+        width: 100%;
+        height: 200px;
+        border-right: 1px solid white;
+        border-left: 1px solid white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media only screen and (max-width:890px){
+    .dashCont{
+        width: screen;
+        border: 1px solid gray;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 5px 20px;
+    
+    }
+}
+
+@media only screen and (max-width:650px){
+    .part2Desc h1{
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width:420px){
+    .part2Desc h1{
+        font-size: 14px;
+    }
+}
+
 

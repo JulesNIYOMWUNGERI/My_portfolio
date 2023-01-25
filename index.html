@@ -262,31 +262,9 @@
 
         </div>
         <div class="ablogbutton">
-            <button onclick="displayPopUp()" class="blogbutton1 create"></button>
-            <button onclick="displaySignUpPopUp()" class="blogbutton2 signup">LogIn To create Blog</button>
-        </div>
-        <div class="popuptab">
-            <div class="innerpopup">
-                <div onclick="handleDismiss()"  class="dismisspopup">x</div>
-                <div class="blogformcontainer">
-                    <h1>Create a blog</h1>
-                    <form onsubmit="handleSubmitBlog(event)" id="blogFormInputs">
-                        <div class="bloginput">
-                            <label class="label">Title:</label>
-                            <input id="title" type="text" placeholder="Title">
-                        </div>
-                        <div class="bloginput">
-                            <label class="label">Description:</label>
-                            <input type="text" placeholder="Description">
-                        </div>
-                        <div class="bloginput">
-                            <label class="label">Image:</label>
-                            <input type="text" placeholder="Image url...">
-                        </div>
-                        <button class="createbtn">CREATE</button>
-                    </form>
-                </div>
-            </div>
+            <!-- <div onclick="displayPopUp()" class="blogbutton1 create"></div> -->
+            <a href="src/Dashboard.html"><div class="blogbutton1 create"></div></a>
+            <div onclick="displaySignUpPopUp()" class="blogbutton2 signup">LogIn As an Admin</div>
         </div>
         <div class="SIGNUPpopuptab">
             <div class="innerpopup">
@@ -296,22 +274,27 @@
                     <form id="userFormInputs">
                         <div class="hidden2 notshown">
                             <label class="label">Full Name:</label>
-                            <input id="title" type="text" placeholder="Full Name">
+                            <input class="name-field" id='SignUp-name' type="text" placeholder="Full Name"  onkeyup="ValidateName()">
+                            <span id="name-error"></span>
                         </div>
                         <div class="bloginput">
                             <label class="label">Email:</label>
-                            <input type="text" placeholder="Email">
+                            <input class="email-field" type="text" placeholder="Email" id="SignUp-email" onkeyup="ValidateEmail()">
+                            <span id="Email-error"></span>
                         </div>
                         <div class="bloginput">
                             <label class="label">Password:</label>
-                            <input type="text" placeholder="Password">
+                            <input class="password-field" type="password" placeholder="Password" id="SignUp-password" onkeyup="ValidatePassword()">
+                            <span id="password-error"></span>
                         </div>
                         <div class="hidden3 notshown">
                             <label class="label">Comfirm Password:</label>
-                            <input type="text" placeholder="Comfirm Password">
+                            <input class="comfirmpassword-field" type="password" placeholder="Comfirm Password" id="SignUp-comfirmPassword" onkeyup="ValidateComfirmPassword()">
+                            <span id="comfirmPassword-error"></span>
                         </div>
                         <button id="signup" class="Loginbtn notshown">SIGNUP</button>
                         <button id="signin" class="Loginbtn2" >SIGNIN</button>
+                        <span id="submit-error"></span>
                         <div class="switch">Don't Have an Account? SignUp</div>
                         <div class="switch2 notshown">Already Have an Account? SignIn</div>
                     </form>

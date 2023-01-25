@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../styles.css">
+    <script defer src="../index.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9345e60b24.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body onload="handleDashboard()" class="dashboardContainer">
+   <div class="dashWraper">
+     <div class="dashCont"></div>
+     <div class="dashCont2"></div>
+     <div class="dashCont3"></div>
+   </div>
+   <div class="popuptab">
+        <div class="innerpopup">
+            <div onclick="handleDismiss()"  class="dismisspopup">x</div>
+            <div class="blogformcontainer">
+                <h1 class="create-blog-title">Create a blog</h1>
+                <h1 class="edit-blog-title show-not">Edit a blog</h1>
+                <form id="blogFormInputs">
+                    <div class="bloginput">
+                        <label class="label">Title:</label>
+                        <input class="title-field" type="text" placeholder="Title" id="blog-title" onkeyup="ValidateTitle()">
+                        <span id="title-error"></span>
+                    </div>
+                    <div class="bloginput">
+                        <label class="label">Description:</label>
+                        <textarea class="desc-field" cols="10" rows="5" placeholder="Description" id="Description" onkeyup="ValidateDesc()"></textarea>
+                        <span id="desc-error"></span>
+                    </div>
+                    <div class="bloginput">
+                        <label class="label">Image:</label>
+                        <input class="image-field1" type="text" placeholder="Image url..." id="Image1" onkeyup="ValidateImage1()">
+                        <span id="image1-error"></span>
+                    </div>
+                    <button class="createbtn1" onclick="handleSubmitBlog(event)">CREATE</button>
+                    <button class="createbtn2 show-not" onclick="handleEditBlog(event)">EDIT</button>
+                    <span id="blog-submit-error"></span>
+                </form>
+            </div>
+        </div>
+  </div>
+</body>
+</html>
