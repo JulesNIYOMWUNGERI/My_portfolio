@@ -978,15 +978,19 @@ function EditBlog(id){
 
     const editedBlog = blogs.filter((blog)=>blog?.id === id)
 
-    console.log(editedBlog)
-
     const popup = document.querySelector('.popuptab');
     
     popup.classList.add('show_popup')
-
+    
     var title = document.getElementById('blog-title').value=editedBlog[0]?.title
     var desc = document.getElementById('Description').value=editedBlog[0]?.desc
     var ImageUrl = document.getElementById('Image1').value=editedBlog[0]?.img
+    
+    const leftBlogs = blogs.filter((blog) => blog?.id !== id)
+
+    localStorage.setItem('blog',JSON.stringify(leftBlogs));
+
+    handleDashboard();
 
     const editButton = document.querySelector('.createbtn2')
     const createButton = document.querySelector('.createbtn1')
@@ -1007,6 +1011,51 @@ function EditBlog(id){
 function handleEditBlog(e){
     e.preventDefault();
     console.log('Editing a blog');
+
+    if(localStorage.getItem('blog') == null){
+        let array = [];
+
+        var title = document.getElementById('blog-title').value;
+        var desc = document.getElementById('Description').value;
+        var ImageUrl = document.getElementById('Image1').value;
+        
+        const blog = {
+            id:array?.length + 1,
+            title,
+            desc,
+            ImageUrl,
+        }
+
+        array.push(blog)
+
+        localStorage.setItem('blog',JSON.stringify(array))
+
+        handleDashboard();
+
+    }else {
+        const array = JSON.parse(localStorage.getItem('blog'))
+
+        var title = document.getElementById('blog-title').value;
+        var desc = document.getElementById('Description').value;
+        var img = document.getElementById('Image1').value;
+
+        const blog = {
+            id: new Date().getTime()+array?.length,
+            title,
+            desc,
+            img,
+        }
+
+        console.log(blog);
+
+        array.push(blog);
+
+        localStorage.setItem('blog',JSON.stringify(array))
+
+        handleDashboard();
+
+        handleDismiss();
+    }
 }
 
 
