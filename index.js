@@ -265,8 +265,6 @@ function handleSubmitBlog (e) {
         
         
         localStorage.setItem("blog",JSON.stringify(array));
-        window.alert("Blog Added Successfully!.")
-
         BlogForm[0].value = "";
         BlogForm[1].value = "";
         BlogForm[2].value = "";
@@ -307,8 +305,6 @@ function handleSubmitBlog (e) {
         array.push(blog)
 
         localStorage.setItem("blog",JSON.stringify(array));
-        window.alert("Blog Added Successfully!.")
-
         BlogForm[0].value = "";
         BlogForm[1].value = "";
         BlogForm[2].value = "";
@@ -626,9 +622,6 @@ signUpButton.addEventListener('click',function handleSubmitUser (e) {
         array.push(user)
 
         localStorage.setItem("register",JSON.stringify(array))
-        window.alert("Signed Up Successfully!!")
-
-        window.alert("Now LogIn")
 
         SignUpform[0].value = "";
         SignUpform[1].value = "";
@@ -744,8 +737,6 @@ signInButton.addEventListener('click',function handleLogin(e){
         if(!admin.length == 0 || !adminPassword.length == 0){
             console.log(adminPassword)
             localStorage.setItem('user',JSON.stringify(admin))
-
-            window.alert("Logged In Successfully!!!")
 
             SignUpform[1].value="";
             SignUpform[2].value="";
@@ -918,7 +909,7 @@ function handleDashboard() {
     const dashCont3 = document.querySelector('.dashCont3')
 
     dashCont.innerHTML = `
-        <img class='dashImg'/>
+        <img class='dashImg' src="https://avatars.githubusercontent.com/u/118351366?v=4"/>
         <div class='dashTitle'>
           <h1>${user[0]?.fullname}</h1>
           <h1>${user[0]?.email}</h1>
