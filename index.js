@@ -854,20 +854,55 @@ function hanleDetails() {
 
 
     const singleBlog = blogs?.filter((blog) => blog.id === id)
+    const likesArr = JSON.parse(localStorage.getItem('likes'))
 
+    const thisPostLikes = likesArr?.filter((obj) => obj.id == singleBlog[0].id)
+
+    const AllComment = JSON.parse(localStorage.getItem('comment'));
+    const thisPostComment = AllComment?.filter((comment)=>comment.blogId == singleBlog[0].id)
 
     containerDev.innerHTML = `
       <img class='part1Image' src=${JSON.stringify(singleBlog[0]?.img)}/>
       <div class='part1-title'>
         <h1>${singleBlog[0]?.title}</h1>
-        <div class='likesSection'>
-          <p>likes<i class="fa-solid fa-thumbs-up"></i></p>
-          <p>comment<i class="fa-solid fa-comment"></i></p>
+        <div class='likesSection hidden-section'>
+          <p onclick="handleLike(${singleBlog[0]?.id})">${thisPostLikes?.length}likes<i class="fa-solid fa-thumbs-up"></i></p>
+          <p>${thisPostComment?.length}comment<i class="fa-solid fa-comment"></i></p>
+        </div>
+        <div class='visitorSection' onclick="handleVisitor()">
+         <p>SIGNUP TO LIKE AND COMMENT</p>
+        </div>
+      </div>
+      <div class='commentBox'>
+        <div class='commentInnerBox'>
+          <h1>Leave your comment here!</h1>
+          <hr/>
+          <form class='commentForm'>
+           <div class='commentContainer'>
+             <label>Comment:</label>
+             <div class='innerCommentContainer'>
+               <textarea class='commentText' type="text" placeholder="Comment" rows="4" onkeyup="ValidateComment()"></textarea>
+               <span id='comment-error'></span>
+               <span id='comment-success'></span>
+             </div>
+           </div>
+           <div class='commentButtonContainer'>
+             <button onclick="handleSubmitComment(event,${singleBlog[0]?.id})">Comment</button>
+             <span id='submit-comment-error'></span>
+           </div>
+          </form>
         </div>
       </div>
       <hr/>
       <div class='part1-desc'>
         <p>${singleBlog[0]?.desc}</p>
+      </div>
+      <hr/>
+      <div>
+        <h1>comments</h1>
+        <div id='commentDisplayer'>
+         
+        </div>
       </div>
     `
 
@@ -890,23 +925,358 @@ function hanleDetails() {
         `
     }
 
-    
+    const visitor = JSON.parse(localStorage.getItem('visitor'))
+    const likesSection = document.querySelector('.likesSection')
+    const visitorSection = document.querySelector('.visitorSection')
+
+    if(visitor){
+        likesSection.classList.remove('hidden-section')
+        visitorSection.classList.add('hidden-section')
+    }else{
+        likesSection.classList.add('hidden-section')
+        visitorSection.classList.remove('hidden-section')
+    }
 
 
 }
 
 
+//VISITOR SIGNUP
+
+function handleVisitor(){
+    const VISITORSIGNUPpopuptab = document.querySelector('.VISITORSIGNUPpopuptab');
+
+    VISITORSIGNUPpopuptab.classList.add('show-visitor')
+}
+
+function VISITORSIGNUPhandleDismiss(){
+    const VISITORSIGNUPpopuptab = document.querySelector('.VISITORSIGNUPpopuptab');
+
+    VISITORSIGNUPpopuptab.classList.remove('show-visitor')
+}
+
+
+
+
+function handleChanges(){
+    const visitorswitch = document.querySelector('.visitorswitch');
+    const visitorswitch2 = document.querySelector('.visitorswitch2');
+    const visitor1 = document.querySelector('.visitor1');
+    const visitor4 = document.querySelector('.visitor4');
+    const VisitorLoginbtn = document.querySelector('.VisitorLoginbtn');
+    const VisitorLoginbtn2 = document.querySelector('.VisitorLoginbtn2');
+
+    visitorswitch.classList.add('notshown');
+    visitorswitch2.classList.remove('notshown');
+    visitor1.classList.remove('notshown');
+    visitor4.classList.remove('notshown');
+    VisitorLoginbtn.classList.remove('notshown');
+    VisitorLoginbtn2.classList.add('notshown');
+}
+
+function rehandleChanges(){
+    const visitorswitch = document.querySelector('.visitorswitch');
+    const visitorswitch2 = document.querySelector('.visitorswitch2');
+    const visitor1 = document.querySelector('.visitor1');
+    const visitor4 = document.querySelector('.visitor4');
+    const VisitorLoginbtn = document.querySelector('.VisitorLoginbtn');
+    const VisitorLoginbtn2 = document.querySelector('.VisitorLoginbtn2');
+
+    visitorswitch.classList.remove('notshown');
+    visitorswitch2.classList.add('notshown');
+    visitor1.classList.add('notshown');
+    visitor4.classList.add('notshown');
+    VisitorLoginbtn.classList.add('notshown');
+    VisitorLoginbtn2.classList.remove('notshown');
+}
+
+
+
+//VISITOR SIGNUP FORM VALIDATION
+
+
+function ValidateVisitorName(){
+    const NameError = document.getElementById('visitor-name-error');
+    const name = document.getElementById('visitor-SignUp-name').value;
+    const namefield = document.querySelector('.visitor-name-field')
+
+    if(name.length == 0){
+        NameError.innerHTML="Name is required";
+        namefield.classList.remove('fieldvalid')
+        namefield.classList.add('fieldinvalid')
+        return false;
+    }
+    if(!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+        NameError.innerHTML="Write full name";
+        namefield.classList.remove('fieldvalid')
+        namefield.classList.add('fieldinvalid')
+        return false;
+    }
+    NameError.innerHTML="";
+    namefield.classList.remove('fieldinvalid')
+    namefield.classList.add('fieldvalid')
+    return true;
+}
+
+
+function ValidateVisitorEmail(){
+    const EmailError = document.getElementById('visitor-Email-error');
+    const email = document.getElementById('visitor-SignUp-email').value;
+    const emailfield = document.querySelector('.visitor-email-field')
+
+    if(email.length == 0){
+        EmailError.innerHTML="Email is required";
+        emailfield.classList.remove('fieldvalid')
+        emailfield.classList.add('fieldinvalid')
+        return false;
+    }
+    if(!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,3})+$/)){
+        EmailError.innerHTML="Please Enter a Valid Email";
+        emailfield.classList.remove('fieldvalid')
+        emailfield.classList.add('fieldinvalid')
+        return false;
+    }
+    EmailError.innerHTML="";
+    emailfield.classList.remove('fieldinvalid')
+    emailfield.classList.add('fieldvalid')
+    return true;
+}
+
+function ValidateVisitorPassword(){
+    const PasswordError = document.getElementById('visitor-password-error');
+    const password = document.getElementById('visitor-SignUp-password').value;
+    const passwordfield = document.querySelector('.visitor-password-field')
+
+    if(password.length == 0){
+        PasswordError.innerHTML="Password is required";
+        passwordfield.classList.remove('fieldvalid')
+        passwordfield.classList.add('fieldinvalid')
+        return false;
+    }
+    if(!password.match(/[a-z]/)){
+        PasswordError.innerHTML="Password should be started by words and lowercase";
+        passwordfield.classList.remove('fieldvalid')
+        passwordfield.classList.add('fieldinvalid')
+        return false;
+    }
+
+    PasswordError.innerHTML="";
+    passwordfield.classList.remove('fieldinvalid')
+    passwordfield.classList.add('fieldvalid')
+    return true;
+}
+
+
+function ValidateVisitorComfirmPassword(){
+    const ComfirmPasswordError = document.getElementById('visitor-comfirmPassword-error');
+    const comfirmpassword = document.getElementById('visitor-SignUp-comfirmPassword').value;
+    const password = document.getElementById('visitor-SignUp-password').value;
+    const comfirmpasswordfield = document.querySelector('.visitor-comfirmpassword-field')
+
+
+    if(comfirmpassword.length == 0){
+        ComfirmPasswordError.innerHTML="Password Comfirmation is required";
+        comfirmpasswordfield.classList.remove('fieldvalid')
+        comfirmpasswordfield.classList.add('fieldinvalid')
+        return false;
+    }
+    if(!comfirmpassword.match(password)){
+        ComfirmPasswordError.innerHTML="Password Comfirmation should match with password";
+        comfirmpasswordfield.classList.remove('fieldvalid')
+        comfirmpasswordfield.classList.add('fieldinvalid')
+        return false;
+    }
+    ComfirmPasswordError.innerHTML="";
+    comfirmpasswordfield.classList.remove('fieldinvalid')
+    comfirmpasswordfield.classList.add('fieldvalid')
+    return true;
+}
+
+
+//REGISTER VISITER
+
+function handleSendVisitor(e){
+    e.preventDefault();
+
+
+    const SubmitError = document.getElementById('visitor-submit-error')
+
+    let fullname = document.getElementById('visitor-SignUp-name').value;
+    let email = document.getElementById('visitor-SignUp-email').value;
+    let password = document.getElementById('visitor-SignUp-password').value;
+    let comfirmpassword = document.getElementById('visitor-SignUp-comfirmPassword').value;
+
+
+    if(!ValidateVisitorName() || !ValidateVisitorEmail() || !ValidateVisitorPassword() || !ValidateVisitorComfirmPassword()){
+        SubmitError.innerHTML="please fix the error above!"
+        
+            setTimeout(function(){
+                SubmitError.innerHTML=""
+            },3000)
+    }else if(localStorage.getItem('registeredVisitor') == null){
+        let array = []
+
+
+        const visitor = {
+            id:new Date().getTime(),
+            fullname,
+            email,
+            password,
+            comfirmpassword
+        }
+
+        array.push(visitor)
+
+        localStorage.setItem("registeredVisitor",JSON.stringify(array))
+
+        document.getElementById('visitor-SignUp-name').value = "";
+        document.getElementById('visitor-SignUp-email').value = "";
+        document.getElementById('visitor-SignUp-password').value = "";
+        document.getElementById('visitor-SignUp-comfirmPassword').value = "";
+
+        var emailfield = document.querySelector('.visitor-email-field')
+        var passwordfield = document.querySelector('.visitor-password-field')
+        var namefield = document.querySelector('.visitor-name-field')
+        var comfirmpasswordfield = document.querySelector('.visitor-comfirmpassword-field')
+
+        namefield.classList.remove('fieldvalid')
+        namefield.classList.remove('fieldinvalid')
+        emailfield.classList.remove('fieldvalid')
+        emailfield.classList.remove('fieldinvalid')
+        passwordfield.classList.remove('fieldvalid')
+        passwordfield.classList.remove('fieldinvalid')
+        comfirmpasswordfield.classList.remove('fieldvalid')
+        comfirmpasswordfield.classList.remove('fieldinvalid')
+
+
+
+        const visitorswitch = document.querySelector('.visitorswitch');
+        const visitorswitch2 = document.querySelector('.visitorswitch2');
+        const visitor1 = document.querySelector('.visitor1');
+        const visitor4 = document.querySelector('.visitor4');
+        const VisitorLoginbtn = document.querySelector('.VisitorLoginbtn');
+        const VisitorLoginbtn2 = document.querySelector('.VisitorLoginbtn2');
+
+        visitor1.classList.add('notshown')
+        visitor4.classList.add('notshown')
+        visitorswitch.classList.remove('notshown')
+        visitorswitch2.classList.add('notshown')
+        VisitorLoginbtn.classList.add('notshown')
+        VisitorLoginbtn2.classList.remove('notshown')
+    }else{
+        let array = JSON.parse(localStorage.getItem('registeredVisitor'))
+
+
+        const visitor = {
+            id:new Date().getTime() + array?.length,
+            fullname,
+            email,
+            password,
+            comfirmpassword
+        }
+
+        array.push(visitor)
+
+        localStorage.setItem("registeredVisitor",JSON.stringify(array))
+
+        document.getElementById('visitor-SignUp-name').value = "";
+        document.getElementById('visitor-SignUp-email').value = "";
+        document.getElementById('visitor-SignUp-password').value = "";
+        document.getElementById('visitor-SignUp-comfirmPassword').value = "";
+
+        var emailfield = document.querySelector('.visitor-email-field')
+        var passwordfield = document.querySelector('.visitor-password-field')
+        var namefield = document.querySelector('.visitor-name-field')
+        var comfirmpasswordfield = document.querySelector('.visitor-comfirmpassword-field')
+
+        namefield.classList.remove('fieldvalid')
+        namefield.classList.remove('fieldinvalid')
+        emailfield.classList.remove('fieldvalid')
+        emailfield.classList.remove('fieldinvalid')
+        passwordfield.classList.remove('fieldvalid')
+        passwordfield.classList.remove('fieldinvalid')
+        comfirmpasswordfield.classList.remove('fieldvalid')
+        comfirmpasswordfield.classList.remove('fieldinvalid')
+
+
+
+        const visitorswitch = document.querySelector('.visitorswitch');
+        const visitorswitch2 = document.querySelector('.visitorswitch2');
+        const visitor1 = document.querySelector('.visitor1');
+        const visitor4 = document.querySelector('.visitor4');
+        const VisitorLoginbtn = document.querySelector('.VisitorLoginbtn');
+        const VisitorLoginbtn2 = document.querySelector('.VisitorLoginbtn2');
+
+        visitor1.classList.add('notshown')
+        visitor4.classList.add('notshown')
+        visitorswitch.classList.remove('notshown')
+        visitorswitch2.classList.add('notshown')
+        VisitorLoginbtn.classList.add('notshown')
+        VisitorLoginbtn2.classList.remove('notshown')
+    }
+}
+
+//VISITOR LOGIN
+
+function handleVistorLogIn(e){
+    e.preventDefault();
+
+    const SubmitError = document.getElementById('visitor-submit-error')
+
+    const allVisitors = JSON.parse(localStorage.getItem("registeredVisitor"))
+    let email = document.getElementById('visitor-SignUp-email').value;
+    let password = document.getElementById('visitor-SignUp-password').value;
+
+    const selectedVisitor = allVisitors?.filter((visitor) => visitor.email == email)
+
+    if(!ValidateVisitorEmail() || !ValidateVisitorPassword()){
+        SubmitError.innerHTML="please fix the error above!"
+        
+            setTimeout(function(){
+                SubmitError.innerHTML=""
+            },3000)
+    }else if(selectedVisitor?.length != 0){
+        localStorage.setItem('visitor',JSON.stringify(selectedVisitor));
+
+        document.getElementById('visitor-SignUp-name').value = "";
+        document.getElementById('visitor-SignUp-email').value = "";
+        document.getElementById('visitor-SignUp-password').value = "";
+        document.getElementById('visitor-SignUp-comfirmPassword').value = "";
+
+        var emailfield = document.querySelector('.visitor-email-field');
+        var passwordfield = document.querySelector('.visitor-password-field');
+        var namefield = document.querySelector('.visitor-name-field');
+        var comfirmpasswordfield = document.querySelector('.visitor-comfirmpassword-field');
+
+        namefield.classList.remove('fieldvalid');
+        namefield.classList.remove('fieldinvalid');
+        emailfield.classList.remove('fieldvalid');
+        emailfield.classList.remove('fieldinvalid');
+        passwordfield.classList.remove('fieldvalid');
+        passwordfield.classList.remove('fieldinvalid');
+        comfirmpasswordfield.classList.remove('fieldvalid');
+        comfirmpasswordfield.classList.remove('fieldinvalid');
+
+        VISITORSIGNUPhandleDismiss();
+    }else{
+        console.log("no visitor found")
+    }
+}
 
 //DASHBOARD
 
 function handleDashboard() {
     const user = JSON.parse(localStorage.getItem('user'))
     const blogs = JSON.parse(localStorage.getItem('blog'))
+    const allVistors = JSON.parse(localStorage.getItem('registeredVisitor'))
+    const allComment = JSON.parse(localStorage.getItem('comment'))
 
     
     const dashCont = document.querySelector('.dashCont')
     const dashCont2 = document.querySelector('.dashCont2')
     const dashCont3 = document.querySelector('.dashCont3')
+    const innerUserContValue = document.querySelector('.innerUserContValue');
+    const innerCommentContValue = document.querySelector('.innerCommentContValue')
 
     dashCont.innerHTML = `
         <img class='dashImg' src="https://avatars.githubusercontent.com/u/118351366?v=4"/>
@@ -917,6 +1287,32 @@ function handleDashboard() {
           <button class='dashBtn' onclick="displayPopUp()">Create New Blog</button>
         </div>
     `
+
+
+    innerUserContValue.innerHTML="";
+    for(let i = 0; i < allVistors?.length; i++){
+        innerUserContValue.innerHTML += `
+          <div class='nowAllUsers'>
+            <p>${allVistors[i]?.fullname}</p>
+            <p>${allVistors[i]?.email}</p>
+            <span onclick="handleDeleteUser(${allVistors[i]?.id})">delete</span>
+          </div>
+        `
+    }
+
+
+    innerCommentContValue.innerHTML="";
+    for(let i = 0; i < allComment?.length; i++){
+        innerCommentContValue.innerHTML += `
+          <div class='nowAllcomments'>
+            <p>${allComment[i]?.commentedUser}</p>
+            <p>${allComment[i]?.commentValue}</p>
+            <span onclick="handleDeleteComment(${allComment[i]?.id})">delete</span>
+          </div>
+        `
+    }
+
+
 
     dashCont2.innerHTML = `
       <h1>List of your blogs</h1>
@@ -1050,5 +1446,225 @@ function handleEditBlog(e){
 }
 
 
+function handleLike(id){
+    const visitorWhoLikes = JSON.parse(localStorage.getItem("visitor"))[0]?.id
+
+    const likesArray = JSON.parse(localStorage.getItem("likes"))
+
+    const singleLike = likesArray?.filter((like)=>like.visitorWhoLikes == visitorWhoLikes)
+
+    const likedPost =  singleLike?.filter((single)=>single.id == id)
+
+    if(localStorage.getItem('likes') == null){
+
+        let array = []
+
+        let obj = {
+            visitorWhoLikes,
+            id
+        }
+    
+        array.push(obj)
+
+        localStorage.setItem('likes',JSON.stringify(array))
+
+        hanleDetails()
+        
+    }else{
+
+       if(singleLike?.length == 0){
+           let array = JSON.parse(localStorage.getItem("likes"))
+
+           let obj = {
+            visitorWhoLikes,
+            id
+           }
+
+           array.push(obj)
+
+           localStorage.setItem('likes',JSON.stringify(array))
+           hanleDetails()
+       }else{
+        if(likedPost?.length == 0){
+            let array = JSON.parse(localStorage.getItem("likes"))
+
+            let obj = {
+             visitorWhoLikes,
+             id
+            }
+ 
+            array.push(obj)
+ 
+            localStorage.setItem('likes',JSON.stringify(array))
+            hanleDetails()
+        }else{
+            console.log("allready liked the blog")
+        }
+       }
+    }
+}
+
+//VALIDATE COMMENT FORM
+
+function ValidateComment(){
+    let commentError = document.getElementById('comment-error')
+    let commentValue = document.querySelector('.commentText').value;
+    let commentValueField = document.querySelector('.commentText')
+    console.log(commentError)
+
+    if(commentValue?.length == 0){
+        commentError.innerHTML="Comment is required";
+        commentValueField.classList.add('fieldinvalid');
+        commentValueField.classList.remove('fieldvalid');
+        return false;
+    }
+    commentError.innerHTML="";
+    commentValueField.classList.remove('fieldvalid');
+    commentValueField.classList.remove('fieldinvalid');
+    return true;
+
+} 
 
 
+
+//SUBMIT COMMENT
+
+function handleSubmitComment(e,id){
+    e.preventDefault();
+    const commentValue = document.querySelector('.commentText').value;
+    const currentUser = JSON.parse(localStorage.getItem('visitor'))
+    
+    if(!ValidateComment()){
+        const submitCommentError = document.getElementById('submit-comment-error');
+
+        submitCommentError.innerHTML="Please fix the error above!"
+
+        setTimeout(()=>{
+            submitCommentError.innerHTML=""
+        },3000)
+
+    }else if(localStorage.getItem('comment') == null){
+        let arr = [];
+
+        let obj = {
+            id:new Date().getTime(),
+            blogId:id,
+            commentedUser:currentUser[0]?.fullname,
+            commentValue,
+        }
+
+        arr.push(obj);
+
+        localStorage.setItem('comment',JSON.stringify(arr));
+        document.querySelector('.commentText').value="";
+        console.log("comment added successfull!!!")
+
+
+        let commentValueField = document.querySelector('.commentText')
+
+        commentValueField.classList.remove('fieldinvalid');
+        commentValueField.classList.remove('fieldvalid');
+
+
+        let commentSuccess = document.getElementById('comment-success')
+
+        commentSuccess.innerHTML="Comment added successfully!"
+
+        setTimeout(()=>{
+            commentSuccess.innerHTML=""
+        },3000)
+
+
+        
+        hanleDetails();
+
+        handleDisplayComment();
+
+    }else{
+        let arr = JSON.parse(localStorage.getItem('comment'))
+
+        let obj = {
+            id:new Date().getTime(),
+            blogId:id,
+            commentedUser:currentUser[0]?.fullname,
+            commentValue,
+        }
+
+        arr.push(obj);
+
+        localStorage.setItem('comment',JSON.stringify(arr))
+        document.querySelector('.commentText').value="";
+        console.log("comment added successfull!!!")
+
+        let commentValueField = document.querySelector('.commentText')
+
+        commentValueField.classList.remove('fieldinvalid');
+        commentValueField.classList.remove('fieldvalid');
+
+
+        let commentSuccess = document.getElementById('comment-success')
+
+        commentSuccess.innerHTML="Comment added successfully!"
+
+        setTimeout(()=>{
+            commentSuccess.innerHTML=""
+        },3000)
+
+
+        
+        
+        hanleDetails();
+
+        handleDisplayComment();
+    }
+}
+
+
+//HANDLE DISPLAY COMMENT
+
+function handleDisplayComment(){
+    let parameters = window.location.search
+    let urlParams = new URLSearchParams(parameters);
+    let param1 = urlParams.get('id');
+
+
+    const id = JSON.parse(param1);
+    const commentDisplayer = document.getElementById('commentDisplayer');
+    const allComment = JSON.parse(localStorage.getItem('comment'));
+    const thisBlogComment = allComment.filter((comment)=>comment.blogId == id)
+    console.log(thisBlogComment)
+    commentDisplayer.innerHTML="";
+    for(let i = 0; i < thisBlogComment?.length; i++){
+        commentDisplayer.innerHTML +=`
+         <div class='commentDisplayerBox'>
+           <h1>${thisBlogComment[i]?.commentedUser}:</h1>
+           <p>${thisBlogComment[i]?.commentValue}</p>
+         </div>
+        `
+    }
+}
+
+
+//DELETE USER
+
+function handleDeleteUser(id){
+    const allVistors = JSON.parse(localStorage.getItem('registeredVisitor'))
+
+    const newAllVistors = allVistors.filter((visitor)=>visitor?.id != id)
+
+    localStorage.setItem('registeredVisitor',JSON.stringify(newAllVistors))
+
+    handleDashboard()
+}
+
+//DELETE COMMENT
+
+function handleDeleteComment(id){
+    const allComment = JSON.parse(localStorage.getItem('comment'))
+
+    const newAllComment = allComment.filter((comment)=>comment?.id != id)
+
+    localStorage.setItem('comment',JSON.stringify(newAllComment))
+
+    handleDashboard()
+}

@@ -1220,11 +1220,12 @@ ul li a:hover{
 
 }
 
-
-
 .blogformcontainer h1{
     color: #f9004fdc;
     font-weight: bold;
+    display: flex;
+    text-align: center;
+    font-size: 25px;
 }
 
 
@@ -1266,6 +1267,34 @@ ul li a:hover{
 
 
 .Loginbtn2:hover{
+    transform: translate(0, -5px);
+}
+
+.VisitorLoginbtn{
+    padding:15px 40px;
+    background-color: #f9004fe6;
+    color: #c3c3c3;
+    border-radius: 5px;
+    font-weight: 700;
+    border: none;
+    transition: 0.50s;
+}
+
+.VisitorLoginbtn:hover{
+    transform: translate(0, -5px);
+}
+
+.VisitorLoginbtn2{
+    padding:15px 40px;
+    background-color: #f9004fe6;
+    color: #c3c3c3;
+    border-radius: 5px;
+    font-weight: 700;
+    border: none;
+    transition: 0.50s;
+}
+
+.VisitorLoginbtn2:hover{
     transform: translate(0, -5px);
 }
 
@@ -1317,6 +1346,18 @@ ul li a:hover{
     text-decoration: underline;
 }
 
+.visitorswitch{
+    border: #c3c3c3;
+    background-color: transparent;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+
+.visitorswitch:hover{
+    text-decoration: underline;
+}
+
 
 .switch2{
     border: #c3c3c3;
@@ -1326,6 +1367,18 @@ ul li a:hover{
 }
 
 .switch2:hover{
+    text-decoration: underline;
+}
+
+.visitorswitch2{
+    border: #c3c3c3;
+    background-color: transparent;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+
+.visitorswitch2:hover{
     text-decoration: underline;
 }
 
@@ -1356,6 +1409,46 @@ ul li a:hover{
  }
 
  .name-field{
+    padding: 15px;
+    width: 90%;
+    color: #ffffff ;
+    background-color: transparent;
+    border: 2px solid rgba(198, 201, 216, 0.118);
+    border-radius: 5px;
+    outline: none;
+}
+
+.visitor-name-field{
+    padding: 15px;
+    width: 90%;
+    color: #ffffff ;
+    background-color: transparent;
+    border: 2px solid rgba(198, 201, 216, 0.118);
+    border-radius: 5px;
+    outline: none;
+}
+
+.visitor-email-field{
+    padding: 15px;
+    width: 90%;
+    color: #ffffff ;
+    background-color: transparent;
+    border: 2px solid rgba(198, 201, 216, 0.118);
+    border-radius: 5px;
+    outline: none;
+}
+
+.visitor-password-field{
+    padding: 15px;
+    width: 90%;
+    color: #ffffff ;
+    background-color: transparent;
+    border: 2px solid rgba(198, 201, 216, 0.118);
+    border-radius: 5px;
+    outline: none;
+}
+
+.visitor-comfirmpassword-field{
     padding: 15px;
     width: 90%;
     color: #ffffff ;
@@ -1416,6 +1509,11 @@ ul li a:hover{
 }
 
 #submit-error{
+    font-size: 10px;
+    color: #e0004d;
+}
+
+#visitor-submit-error{
     font-size: 10px;
     color: #e0004d;
 }
@@ -1574,6 +1672,27 @@ ul li a:hover{
     display: none;
 }
 
+.VISITORSIGNUPpopuptab{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #303030eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20000000000;
+    display: none;
+}
+
+.VISITORSIGNUPpopuptab.show-visitor{
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .SIGNUPpopuptab.show_popup{
     display: block;
     display: flex;
@@ -1593,6 +1712,18 @@ ul li a:hover{
 }
 
 
+.visitorinnerpopup{
+    background-color: #000;
+    width: 320px;
+    height: 69%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
 .dismisspopup{
     width: 300px;
     display: flex;
@@ -1601,6 +1732,59 @@ ul li a:hover{
     cursor: pointer;
     z-index: 2000000000000;
     background-color: #000000;
+}
+
+.dismisvisitorpopup{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+    z-index: 2000000000000;
+    background-color: #000000;
+}
+
+.dismisvisitorpopup span{
+    margin-right: 20px;
+}
+
+.visitor1{
+    width: 100%;
+    gap: 5px;
+}
+
+.visitor1 span{
+    color: #e0004d;
+    font-size: 8px;
+}
+
+.visitor2{
+    width: 100%;
+    gap: 5px;
+}
+
+.visitor2 span{
+    color: #e0004d;
+    font-size: 8px;
+}
+
+.visitor3{
+    width: 100%;
+    gap: 5px;
+}
+
+.visitor3 span{
+    color: #e0004d;
+    font-size: 8px;
+}
+
+.visitor4{
+    width: 100%;
+    gap: 5px;
+}
+
+.visitor4 span{
+    color: #e0004d;
+    font-size: 8px;
 }
 
 
@@ -1767,6 +1951,7 @@ ul li a:hover{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
 }
 
 .part1-desc{
@@ -1787,6 +1972,22 @@ ul li a:hover{
     align-items: center;
     justify-content: space-between;
     width: 200px;
+}
+
+.visitorSection{
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.visitorSection.hidden-section{
+    display: none;
+}
+
+.likesSection.hidden-section{
+    display: none;
 }
 
 .likesSection p{
@@ -2059,6 +2260,190 @@ ul li a:hover{
     display: none;
 }
 
+.commentBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.commentInnerBox{
+    width: 92%;
+    border: 2px solid #3a3a3a;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.commentText{
+    background-color: rgba(255, 255, 255, 0.112);
+    width: 95%;
+    border: none;
+    border-bottom: 2px solid #3a3a3a;;
+    border-radius: 5px;
+    padding: 20px;
+    outline: none;
+    color: gray;
+
+}
+
+.commentText.fieldinvalid{
+    border: 2px solid #e0004d;
+}
+
+.commentText.fieldvalid{
+    border: 2px solid #09c372;
+}
+
+.commentContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.commentForm{
+    padding: 20px 0px;
+}
+
+.commentInnerBox h1{
+    font-size: 25px;
+}
+
+.commentButtonContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.commentButtonContainer button{
+    padding: 10px;
+    background-color: #e0004d;
+    width: 80%;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.commentButtonContainer button:hover{
+    background-color: #e0004d;
+    transform: translate(0, -3px);
+    transition: 0.5s;
+}
+
+#commentDisplayer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.commentDisplayerBox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.commentDisplayerBox h1{
+    font-size: 20px;
+}
+
+.commentDisplayerBox p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.innerCommentContainer{
+    width: 78%;
+    display: flex;
+    flex-direction: column;
+}
+
+#comment-success{
+    color: #09c372;
+    font-size: 10px;
+}
+
+#comment-error{
+    color: #e0004d;
+    font-size: 10px;
+}
+
+#submit-comment-error{
+    color: #e0004d;
+    font-size: 10px;
+}
+
+.commentAndUserCont{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.innerUserContValue{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.innerCommentContValue{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+
+.nowAllUsers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 60px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.nowAllcomments{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 60px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.nowAllcomments span{
+    cursor: pointer;
+    color: #e0004d;
+
+}
+
+
+.nowAllUsers span{
+    cursor: pointer;
+    color: #e0004d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width:600px){
     .dashCont3-container{
@@ -2083,6 +2468,18 @@ ul li a:hover{
         flex-direction: column;
         gap: 10px;
     }
+
+    .commentText{
+        background-color: rgba(255, 255, 255, 0.112);
+        width: 70%;
+        border: none;
+        border-bottom: 2px solid #3a3a3a;;
+        border-radius: 5px;
+        padding: 20px;
+        outline: none;
+        color: gray;
+    
+    }
 }
 
 @media only screen and (max-width:890px){
@@ -2099,18 +2496,79 @@ ul li a:hover{
         padding: 5px 20px;
     
     }
+
+    .commentText{
+        background-color: rgba(255, 255, 255, 0.112);
+        width: 83%;
+        border: none;
+        border-bottom: 2px solid #3a3a3a;;
+        border-radius: 5px;
+        padding: 20px;
+        outline: none;
+        color: gray;
+    
+    }
+}
+
+@media only screen and (max-width:920px){
+    .commentText{
+        background-color: rgba(255, 255, 255, 0.112);
+        width: 87%;
+        border: none;
+        border-bottom: 2px solid #3a3a3a;;
+        border-radius: 5px;
+        padding: 20px;
+        outline: none;
+        color: gray;
+    
+    }
+
+    
+}
+
+@media only screen and (max-width:820px){
+    .commentText{
+        background-color: rgba(255, 255, 255, 0.112);
+        width: 83%;
+        border: none;
+        border-bottom: 2px solid #3a3a3a;;
+        border-radius: 5px;
+        padding: 20px;
+        outline: none;
+        color: gray;
+    
+    }
+
+    
 }
 
 @media only screen and (max-width:650px){
     .part2Desc h1{
         font-size: 20px;
     }
+
+    
 }
 
 @media only screen and (max-width:420px){
     .part2Desc h1{
         font-size: 14px;
     }
+
+    .commentText{
+        background-color: rgba(255, 255, 255, 0.112);
+        width: 55%;
+        border: none;
+        border-bottom: 2px solid #3a3a3a;;
+        border-radius: 5px;
+        padding: 20px;
+        outline: none;
+        color: gray;
+    
+    }
 }
+
+
+
 
 
